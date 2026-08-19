@@ -10,23 +10,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-main: #0B0F17;
-    --bg-card: #131A26;
-    --bg-card-hover: #1A2332;
-    --border: rgba(255, 255, 255, 0.08);
-    --border-accent: rgba(56, 189, 248, 0.2);
+    --bg-main: #FAFAFC;
+    --bg-card: #FFFFFF;
+    --bg-subtle: #F1F5F9;
     
-    --text-primary: #F8FAFC;
-    --text-secondary: #94A3B8;
+    --border: #E2E8F0;
+    --border-strong: #CBD5E1;
+    
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
     --text-muted: #64748B;
     
-    --accent: #38BDF8;
-    --accent-glow: rgba(56, 189, 248, 0.15);
-    --brass: #F59E0B;
-    --brass-glow: rgba(245, 158, 11, 0.15);
-    --green: #10B981;
-    --green-glow: rgba(16, 185, 129, 0.2);
-    --red: #EF4444;
+    /* Brand Accent Palette from Logo */
+    --brand-red: #D92D20;
+    --brand-orange: #E65100;
+    --brand-blue: #0284C7;
+    --brand-blue-dark: #0369A1;
+    --green: #16A34A;
+    --green-bg: #DCFCE7;
+    --red-bg: #FEE2E2;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,144 +49,153 @@
   /* Navbar */
   header {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(11, 15, 23, 0.85);
-    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
   }
   nav {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 0;
+    padding: 14px 0;
   }
   .brand { display: flex; align-items: center; gap: 12px; }
-  .brand-logo {
-    width: 42px; height: 42px; border-radius: 10px;
-    background: linear-gradient(135deg, var(--accent), #0284C7);
-    color: #fff; font-weight: 800; font-size: 1.1rem;
+  
+  /* SVG Logo Container */
+  .brand-logo-svg {
+    width: 48px; height: 48px;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 20px var(--accent-glow);
   }
+  
   .brand-info { display: flex; flex-direction: column; }
-  .brand-name { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; color: #fff; }
-  .brand-sub { font-size: 0.72rem; color: var(--text-secondary); }
+  .brand-name { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--text-primary); line-height: 1.1; }
+  .brand-sub { font-size: 0.72rem; color: var(--text-secondary); font-weight: 500; }
 
   nav ul { display: flex; gap: 32px; list-style: none; }
   nav ul a {
-    color: var(--text-secondary); font-size: 0.9rem; font-weight: 500;
+    color: var(--text-secondary); font-size: 0.92rem; font-weight: 600;
     transition: color 0.2s ease;
+    text-decoration: none;
   }
-  nav ul a:hover { color: var(--accent); }
+  nav ul a:hover { color: var(--brand-blue); }
 
   .nav-btns { display: flex; gap: 12px; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 18px; border-radius: 8px; font-size: 0.88rem; font-weight: 600;
-    text-decoration: none; transition: all 0.25s ease; cursor: pointer; border: none;
+    padding: 10px 20px; border-radius: 8px; font-size: 0.88rem; font-weight: 600;
+    text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: none;
   }
   .btn-outline {
-    background: rgba(255, 255, 255, 0.05); color: var(--text-primary);
-    border: 1px solid var(--border);
+    background: #FFFFFF; color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
-  .btn-outline:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+  .btn-outline:hover { background: var(--bg-subtle); border-color: var(--text-secondary); }
   .btn-wa {
     background: var(--green); color: #fff;
-    box-shadow: 0 0 16px var(--green-glow);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
   }
-  .btn-wa:hover { background: #059669; transform: translateY(-2px); }
+  .btn-wa:hover { background: #15803D; transform: translateY(-1px); }
 
   /* Hero Section */
-  .hero { position: relative; padding: 80px 0 100px; }
-  .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
+  .hero { position: relative; padding: 70px 0 90px; background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-main) 100%); }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
 
   .badge {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 6px 14px; border-radius: 20px;
-    background: rgba(56, 189, 248, 0.1); border: 1px solid var(--border-accent);
-    color: var(--accent); font-size: 0.78rem; font-weight: 600; margin-bottom: 20px;
+    background: #EFF6FF; border: 1px solid #BFDBFE;
+    color: var(--brand-blue-dark); font-size: 0.8rem; font-weight: 600; margin-bottom: 20px;
   }
-  .dot-ping { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+  .dot-ping { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
 
   .hero h1 {
-    font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15;
-    letter-spacing: -0.03em; margin-bottom: 12px;
+    font-size: clamp(2.3rem, 3.8vw, 3.4rem); font-weight: 800; line-height: 1.18;
+    letter-spacing: -0.03em; margin-bottom: 12px; color: var(--text-primary);
   }
-  .hero h1 span { color: var(--accent); }
-  .hero-hindi { font-size: 1.15rem; color: var(--brass); margin-bottom: 20px; font-weight: 600; }
+  .hero h1 span { color: var(--brand-blue); }
+  .hero-hindi { font-size: 1.15rem; color: var(--brand-orange); margin-bottom: 20px; font-weight: 600; }
   .hero-desc { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 520px; }
 
-  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
 
-  .quick-stats { display: flex; gap: 32px; border-top: 1px solid var(--border); padding-top: 28px; }
-  .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
-  .stat-value { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-top: 4px; }
+  .quick-stats { display: flex; gap: 32px; border-top: 1px solid var(--border); padding-top: 24px; }
+  .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .stat-value { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-top: 4px; }
 
-  /* Diagnostic Console Panel */
+  /* Diagnostic Console Panel (Light Spec Theme) */
   .console-panel {
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
   }
   .console-header {
-    background: rgba(0,0,0,0.3); padding: 14px 18px;
+    background: var(--bg-subtle); padding: 14px 18px;
     display: flex; align-items: center; justify-content: space-between;
     border-bottom: 1px solid var(--border);
   }
   .console-dots { display: flex; gap: 6px; }
-  .console-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); }
-  .console-title { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
+  .console-dot { width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; }
+  .console-title { font-size: 0.75rem; color: var(--text-secondary); font-weight: 700; }
 
-  .console-body { padding: 20px; font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary); }
-  .log-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
-  .log-ok { color: var(--green); font-weight: 600; }
-  .log-active { color: var(--accent); font-weight: 600; }
+  .console-body { padding: 22px; font-size: 0.88rem; line-height: 1.8; color: var(--text-secondary); }
+  .log-row { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed var(--border); padding-bottom: 6px; }
+  .log-ok { color: var(--green); font-weight: 700; }
+  .log-active { color: var(--brand-blue); font-weight: 700; }
 
-  /* Services Grid */
-  section { padding: 90px 0; }
-  .sec-header { margin-bottom: 56px; }
-  .sec-tag { color: var(--accent); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
-  .sec-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; }
+  /* Services Section */
+  section { padding: 80px 0; }
+  .sec-header { margin-bottom: 48px; }
+  .sec-tag { color: var(--brand-blue); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+  .sec-title { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; color: var(--text-primary); }
 
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
   .service-card {
     background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 32px; transition: all 0.3s ease;
+    border-radius: 12px; padding: 32px; transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
   }
   .service-card:hover {
-    background: var(--bg-card-hover); border-color: var(--border-accent);
-    transform: translateY(-4px);
+    border-color: var(--brand-blue);
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.08);
+    transform: translateY(-3px);
   }
-  .service-num { font-size: 0.8rem; color: var(--accent); font-weight: 700; margin-bottom: 16px; }
-  .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
-  .service-card p { font-size: 0.92rem; color: var(--text-secondary); }
+  .service-num { font-size: 0.82rem; color: var(--brand-orange); font-weight: 700; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
+  .service-card p { font-size: 0.94rem; color: var(--text-secondary); }
 
   /* Info & Location */
-  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .info-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 36px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .info-box {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 36px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  }
   .info-item { margin-bottom: 24px; }
   .info-item:last-child { margin-bottom: 0; }
-  .info-item label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 6px; }
+  .info-item label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 6px; font-weight: 700; }
   .info-item p { font-size: 1rem; color: var(--text-primary); font-weight: 600; }
 
   .status-tag {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; margin-top: 12px;
+    padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; margin-top: 12px;
   }
-  .status-tag.open { background: var(--green-glow); color: var(--green); }
-  .status-tag.closed { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+  .status-tag.open { background: var(--green-bg); color: var(--green); }
+  .status-tag.closed { background: var(--red-bg); color: var(--brand-red); }
 
-  .map-container { height: 100%; min-height: 350px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
-  .map-container iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg) contrast(1.1); }
+  .map-container { height: 100%; min-height: 350px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+  .map-container iframe { width: 100%; height: 100%; border: 0; }
 
-  /* Floating WA */
+  /* Floating WhatsApp */
   .float-wa {
     position: fixed; bottom: 28px; right: 28px; z-index: 99;
-    width: 60px; height: 60px; border-radius: 50%; background: var(--green);
+    width: 58px; height: 58px; border-radius: 50%; background: var(--green);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 10px 25px var(--green-glow); transition: transform 0.25s ease;
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35); transition: transform 0.25s ease;
   }
   .float-wa:hover { transform: scale(1.08); }
-  .float-wa svg { width: 32px; height: 32px; fill: #fff; }
+  .float-wa svg { width: 30px; height: 30px; fill: #fff; }
 
   @media (max-width: 860px) {
     nav ul { display: none; }
@@ -198,15 +209,27 @@
   <div class="wrap">
     <nav>
       <div class="brand">
-        <div class="brand-logo">MB</div>
+        <!-- Exact Brand Lotus Emblem SVG -->
+        <div class="brand-logo-svg">
+          <svg viewBox="0 0 100 100" width="46" height="46">
+            <g transform="translate(0,-5)">
+              <path d="M50 15 C35 32, 35 52, 50 68 C65 52, 65 32, 50 15 Z" fill="#990000" />
+              <path d="M50 20 C28 32, 22 55, 38 72 C50 58, 48 38, 50 20 Z" fill="#CC0000" />
+              <path d="M50 20 C72 32, 78 55, 62 72 C50 58, 52 38, 50 20 Z" fill="#CC0000" />
+              <path d="M48 30 C20 40, 10 65, 25 80 C40 68, 42 48, 48 30 Z" fill="#E65100" />
+              <path d="M52 30 C80 40, 90 65, 75 80 C60 68, 58 48, 52 30 Z" fill="#E65100" />
+              <path d="M45 42 C12 55, 5 78, 20 88 C35 80, 38 60, 45 42 Z" fill="#F57C00" />
+              <path d="M55 42 C88 55, 95 78, 80 88 C65 80, 62 60, 55 42 Z" fill="#F57C00" />
+            </g>
+          </svg>
+        </div>
         <div class="brand-info">
           <span class="brand-name">M B TECH</span>
-          <span class="brand-sub devanagari">एम बी टेक कंप्यूटर & लैपटॉप स्टोर</span>
+          <span class="brand-sub devanagari">एम बी टेक कंप्यूटर &amp; लैपटॉप स्टोर</span>
         </div>
       </div>
       <ul>
         <li><a href="#services">Services</a></li>
-        <li><a href="#why">Why Us</a></li>
         <li><a href="#location">Store Location</a></li>
       </ul>
       <div class="nav-btns">
@@ -223,11 +246,11 @@
       <div class="hero-grid">
         <div>
           <div class="badge"><span class="dot-ping"></span> Shahupuri, Kolhapur • Sales & Service</div>
-          <h1>Your laptop, <span>diagnosed right</span> & fixed properly.</h1>
-          <div class="hero-hindi devanagari">एम बी टेक कंप्यूटर & लैपटॉप स्टोर</div>
-          <p class="hero-desc">Genuine laptops & desktops, clear pricing, and in-house chip-level hardware repair experts. Kolhapur's trusted tech destination.</p>
+          <h1>Your laptop, <span>diagnosed right</span> &amp; fixed properly.</h1>
+          <div class="hero-hindi devanagari">एम बी टेक कंप्यूटर &amp; लैपटॉप स्टोर</div>
+          <p class="hero-desc">Genuine laptops &amp; desktops, clear pricing, and in-house chip-level hardware repair experts. Kolhapur's trusted tech destination.</p>
           <div class="hero-cta">
-            <a href="https://wa.me/918600822555?text=Hi%20MB%20Tech,%20I%20have%20a%20laptop%20issue" target="_blank" class="btn btn-wa">Chat on WhatsApp</a>
+            <a href="https://wa.me/918600822555?text=Hi%20MB%20Tech,%20I%20have%20a%20laptop%20query" target="_blank" class="btn btn-wa">Chat on WhatsApp</a>
             <a href="tel:+918600822555" class="btn btn-outline">Call Store Direct</a>
           </div>
           <div class="quick-stats">
@@ -253,7 +276,7 @@
               <div class="console-dot"></div>
               <div class="console-dot"></div>
             </div>
-            <div class="console-title mono">DIAGNOSTIC_CONSOLE // MB-416001</div>
+            <div class="console-title mono">DIAGNOSTIC_LOG // MB-416001</div>
           </div>
           <div class="console-body mono">
             <div class="log-row"><span>DISPLAY_TEST</span><span class="log-ok">PASSED [120Hz]</span></div>
@@ -262,7 +285,7 @@
             <div class="log-row"><span>SSD_HEALTH</span><span class="log-ok">HEALTHY [NVMe 98%]</span></div>
             <div class="log-row"><span>THERMAL_PASTE</span><span class="log-active">RE-APPLIED</span></div>
             <br>
-            <div style="color: var(--brass); border-top: 1px dashed var(--border); padding-top: 10px;">
+            <div style="color: var(--brand-orange); font-weight: 700;">
               STATUS: READY FOR PICKUP
             </div>
           </div>
@@ -271,7 +294,7 @@
     </div>
   </section>
 
-  <section id="services" style="background: rgba(0,0,0,0.2);">
+  <section id="services" style="background: #F1F5F9;">
     <div class="wrap">
       <div class="sec-header">
         <div class="sec-tag mono">01 // Services</div>
@@ -281,8 +304,8 @@
       <div class="services-grid">
         <div class="service-card">
           <div class="service-num mono">SYS_01</div>
-          <h3>Laptop & Desktop Sales</h3>
-          <p>Brand new and verified pre-owned laptops & custom desktop builds backed by warranty and official bill support.</p>
+          <h3>Laptop &amp; Desktop Sales</h3>
+          <p>Brand new and verified pre-owned laptops &amp; custom desktop builds backed by warranty and official bill support.</p>
         </div>
         <div class="service-card">
           <div class="service-num mono">SYS_02</div>
@@ -291,13 +314,13 @@
         </div>
         <div class="service-card">
           <div class="service-num mono">SYS_03</div>
-          <h3>SSD & RAM Performance Upgrades</h3>
-          <p>Upgrade old HDD to ultra-fast NVMe SSDs and increase RAM capacity for instant 10x boot speed and performance boost.</p>
+          <h3>SSD &amp; RAM Upgrades</h3>
+          <p>Upgrade old HDD to ultra-fast NVMe SSDs and increase RAM capacity for instant boot speed and performance boost.</p>
         </div>
         <div class="service-card">
           <div class="service-num mono">SYS_04</div>
-          <h3>OS & Software Maintenance</h3>
-          <p>Clean OS installation (Windows/Linux), driver configuration, virus & malware removal, and performance tuning.</p>
+          <h3>OS &amp; Software Maintenance</h3>
+          <p>Clean OS installation (Windows/Linux), driver configuration, virus &amp; malware removal, and speed tuning.</p>
         </div>
         <div class="service-card">
           <div class="service-num mono">SYS_05</div>
@@ -306,8 +329,8 @@
         </div>
         <div class="service-card">
           <div class="service-num mono">SYS_06</div>
-          <h3>Networking & Printer Support</h3>
-          <p>Printer maintenance, ink refill setups, office Wi-Fi networking, and complete AMC tech support for small offices.</p>
+          <h3>Networking &amp; Printer Support</h3>
+          <p>Printer maintenance, ink refill setups, office Wi-Fi networking, and complete tech support for small offices.</p>
         </div>
       </div>
     </div>
@@ -329,17 +352,17 @@
           <div class="info-item">
             <label>Working Hours</label>
             <p>Monday – Saturday: 10:00 AM – 8:00 PM</p>
-            <p style="color: var(--red); font-size: 0.9rem;">Sunday: Closed</p>
+            <p style="color: var(--brand-red); font-size: 0.9rem;">Sunday: Closed</p>
             <div id="status-tag" class="status-tag">Checking store status...</div>
           </div>
           <div class="info-item">
             <label>Direct Contact</label>
-            <p>Phone / WhatsApp: <a href="tel:+918600822555" style="color: var(--accent);">086008 22555</a></p>
+            <p>Phone / WhatsApp: <a href="tel:+918600822555" style="color: var(--brand-blue);">086008 22555</a></p>
           </div>
         </div>
 
         <div class="map-container">
-          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Shahupuri,Kolhapur,Maharashtra+416001&output=embed"></iframe>
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Shahupuri,Kolhapur,Maharashtra+416001&amp;output=embed"></iframe>
         </div>
       </div>
     </div>
@@ -351,10 +374,9 @@
 </a>
 
 <script>
-  // Dynamic Store Status Script
   function checkStoreStatus() {
     const now = new Date();
-    const day = now.getDay(); // 0 = Sun
+    const day = now.getDay();
     const hour = now.getHours();
     const tag = document.getElementById('status-tag');
 
