@@ -7,7 +7,7 @@
 <meta name="description" content="M B TECH Computer & Laptop Store — Computer sales, laptop repair, chip-level fixes & SSD upgrades in Shahupuri, Kolhapur. Call 086008 22555.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-main: #FAFAFC;
@@ -21,11 +21,9 @@
     --text-secondary: #475569;
     --text-muted: #64748B;
     
-    /* Brand Accent Palette from Logo */
     --brand-red: #D92D20;
     --brand-orange: #E65100;
     --brand-blue: #0284C7;
-    --brand-blue-dark: #0369A1;
     --green: #16A34A;
     --green-bg: #DCFCE7;
     --red-bg: #FEE2E2;
@@ -42,14 +40,13 @@
     overflow-x: hidden;
   }
 
-  .mono { font-family: 'JetBrains Mono', monospace; }
   .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
   .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 
   /* Navbar */
   header {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     box-shadow: 0 2px 10px rgba(0,0,0,0.03);
@@ -58,97 +55,63 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 14px 0;
   }
-  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
   
-  /* SVG Logo Container */
-  .brand-logo-svg {
-    width: 48px; height: 48px;
-    display: flex; align-items: center; justify-content: center;
+  /* Logo Styling */
+  .brand-logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
   }
   
   .brand-info { display: flex; flex-direction: column; }
-  .brand-name { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--text-primary); line-height: 1.1; }
-  .brand-sub { font-size: 0.72rem; color: var(--text-secondary); font-weight: 500; }
+  .brand-name { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--text-primary); line-height: 1.1; }
+  .brand-sub { font-size: 0.75rem; color: var(--text-secondary); font-weight: 500; }
 
   nav ul { display: flex; gap: 32px; list-style: none; }
   nav ul a {
-    color: var(--text-secondary); font-size: 0.92rem; font-weight: 600;
+    color: var(--text-secondary); font-size: 0.95rem; font-weight: 600;
     transition: color 0.2s ease;
     text-decoration: none;
   }
   nav ul a:hover { color: var(--brand-blue); }
 
-  .nav-btns { display: flex; gap: 12px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 20px; border-radius: 8px; font-size: 0.88rem; font-weight: 600;
-    text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: none;
-  }
-  .btn-outline {
-    background: #FFFFFF; color: var(--text-primary);
-    border: 1px solid var(--border-strong);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  }
-  .btn-outline:hover { background: var(--bg-subtle); border-color: var(--text-secondary); }
-  .btn-wa {
-    background: var(--green); color: #fff;
-    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
-  }
-  .btn-wa:hover { background: #15803D; transform: translateY(-1px); }
-
   /* Hero Section */
-  .hero { position: relative; padding: 70px 0 90px; background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-main) 100%); }
-  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+  .hero { position: relative; padding: 60px 0 80px; background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-main) 100%); }
+  .hero-content { max-width: 800px; margin: 0 auto; text-align: center; }
 
   .badge {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 14px; border-radius: 20px;
+    padding: 6px 16px; border-radius: 20px;
     background: #EFF6FF; border: 1px solid #BFDBFE;
-    color: var(--brand-blue-dark); font-size: 0.8rem; font-weight: 600; margin-bottom: 20px;
+    color: var(--brand-blue); font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
   }
   .dot-ping { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
 
   .hero h1 {
-    font-size: clamp(2.3rem, 3.8vw, 3.4rem); font-weight: 800; line-height: 1.18;
-    letter-spacing: -0.03em; margin-bottom: 12px; color: var(--text-primary);
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.03em; margin-bottom: 16px; color: var(--text-primary);
   }
   .hero h1 span { color: var(--brand-blue); }
-  .hero-hindi { font-size: 1.15rem; color: var(--brand-orange); margin-bottom: 20px; font-weight: 600; }
-  .hero-desc { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 520px; }
+  .hero-hindi { font-size: 1.25rem; color: var(--brand-orange); margin-bottom: 20px; font-weight: 600; }
+  .hero-desc { font-size: 1.1rem; color: var(--text-secondary); margin: 0 auto 40px; max-width: 620px; }
 
-  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
-
-  .quick-stats { display: flex; gap: 32px; border-top: 1px solid var(--border); padding-top: 24px; }
-  .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
-  .stat-value { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-top: 4px; }
-
-  /* Diagnostic Console Panel (Light Spec Theme) */
-  .console-panel {
-    background: var(--bg-card);
-    border: 1px solid var(--border-strong);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  .quick-stats { 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+    border-top: 1px solid var(--border); padding-top: 32px; margin-top: 20px;
   }
-  .console-header {
-    background: var(--bg-subtle); padding: 14px 18px;
-    display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid var(--border);
+  .stat-card {
+    background: var(--bg-card); padding: 20px; border-radius: 12px;
+    border: 1px solid var(--border); text-align: center;
   }
-  .console-dots { display: flex; gap: 6px; }
-  .console-dot { width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; }
-  .console-title { font-size: 0.75rem; color: var(--text-secondary); font-weight: 700; }
-
-  .console-body { padding: 22px; font-size: 0.88rem; line-height: 1.8; color: var(--text-secondary); }
-  .log-row { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed var(--border); padding-bottom: 6px; }
-  .log-ok { color: var(--green); font-weight: 700; }
-  .log-active { color: var(--brand-blue); font-weight: 700; }
+  .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+  .stat-value { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-top: 6px; }
 
   /* Services Section */
   section { padding: 80px 0; }
-  .sec-header { margin-bottom: 48px; }
+  .sec-header { margin-bottom: 48px; text-align: center; }
   .sec-tag { color: var(--brand-blue); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
-  .sec-title { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; color: var(--text-primary); }
+  .sec-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; color: var(--text-primary); }
 
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
   .service-card {
@@ -161,9 +124,9 @@
     box-shadow: 0 10px 25px rgba(2, 132, 199, 0.08);
     transform: translateY(-3px);
   }
-  .service-num { font-size: 0.82rem; color: var(--brand-orange); font-weight: 700; margin-bottom: 14px; }
-  .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
-  .service-card p { font-size: 0.94rem; color: var(--text-secondary); }
+  .service-num { font-size: 0.85rem; color: var(--brand-orange); font-weight: 700; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
+  .service-card p { font-size: 0.95rem; color: var(--text-secondary); }
 
   /* Info & Location */
   .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
@@ -187,19 +150,58 @@
   .map-container { height: 100%; min-height: 350px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
   .map-container iframe { width: 100%; height: 100%; border: 0; }
 
-  /* Floating WhatsApp */
-  .float-wa {
-    position: fixed; bottom: 28px; right: 28px; z-index: 99;
-    width: 58px; height: 58px; border-radius: 50%; background: var(--green);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35); transition: transform 0.25s ease;
+  /* Floating Action Buttons Container (Bottom Right) */
+  .floating-actions {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
   }
-  .float-wa:hover { transform: scale(1.08); }
-  .float-wa svg { width: 30px; height: 30px; fill: #fff; }
+
+  .float-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .float-btn:hover {
+    transform: scale(1.1);
+  }
+
+  /* Call Button (Above WhatsApp) */
+  .float-call {
+    background: var(--brand-blue);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
+  }
+
+  /* WhatsApp Button (Bottom) */
+  .float-wa {
+    background: var(--green);
+    box-shadow: 0 6px 18px rgba(22, 163, 74, 0.4);
+  }
+
+  .float-btn svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+  }
 
   @media (max-width: 860px) {
     nav ul { display: none; }
-    .hero-grid, .info-grid { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: 1fr; }
+    .floating-actions { bottom: 20px; right: 20px; gap: 12px; }
+    .float-btn { width: 50px; height: 50px; }
+    .float-btn svg { width: 22px; height: 22px; }
   }
 </style>
 </head>
@@ -208,34 +210,18 @@
 <header>
   <div class="wrap">
     <nav>
-      <div class="brand">
-        <!-- Exact Brand Lotus Emblem SVG -->
-        <div class="brand-logo-svg">
-          <svg viewBox="0 0 100 100" width="46" height="46">
-            <g transform="translate(0,-5)">
-              <path d="M50 15 C35 32, 35 52, 50 68 C65 52, 65 32, 50 15 Z" fill="#990000" />
-              <path d="M50 20 C28 32, 22 55, 38 72 C50 58, 48 38, 50 20 Z" fill="#CC0000" />
-              <path d="M50 20 C72 32, 78 55, 62 72 C50 58, 52 38, 50 20 Z" fill="#CC0000" />
-              <path d="M48 30 C20 40, 10 65, 25 80 C40 68, 42 48, 48 30 Z" fill="#E65100" />
-              <path d="M52 30 C80 40, 90 65, 75 80 C60 68, 58 48, 52 30 Z" fill="#E65100" />
-              <path d="M45 42 C12 55, 5 78, 20 88 C35 80, 38 60, 45 42 Z" fill="#F57C00" />
-              <path d="M55 42 C88 55, 95 78, 80 88 C65 80, 62 60, 55 42 Z" fill="#F57C00" />
-            </g>
-          </svg>
-        </div>
+      <a href="#" class="brand">
+        <!-- Integrated Logo Image -->
+        <img src="https://lh3.googleusercontent.com/p/AF1QipN3d7sCg38U82U0d14b436m05255" alt="M B TECH Logo" class="brand-logo-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' width=\'48\' height=\'48\'><path d=\'M50 15 C35 32, 35 52, 50 68 C65 52, 65 32, 50 15 Z\' fill=\'%23D92D20\'/><path d=\'M50 20 C28 32, 22 55, 38 72 C50 58, 48 38, 50 20 Z\' fill=\'%23E65100\'/><path d=\'M50 20 C72 32, 78 55, 62 72 C50 58, 52 38, 50 20 Z\' fill=\'%23E65100\'/></svg>';">
         <div class="brand-info">
           <span class="brand-name">M B TECH</span>
           <span class="brand-sub devanagari">एम बी टेक कंप्यूटर &amp; लैपटॉप स्टोर</span>
         </div>
-      </div>
+      </a>
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#location">Store Location</a></li>
       </ul>
-      <div class="nav-btns">
-        <a href="tel:+918600822555" class="btn btn-outline">086008 22555</a>
-        <a href="https://wa.me/918600822555" target="_blank" class="btn btn-wa">WhatsApp Us</a>
-      </div>
     </nav>
   </div>
 </header>
@@ -243,51 +229,24 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <div class="badge"><span class="dot-ping"></span> Shahupuri, Kolhapur • Sales & Service</div>
-          <h1>Your laptop, <span>diagnosed right</span> &amp; fixed properly.</h1>
-          <div class="hero-hindi devanagari">एम बी टेक कंप्यूटर &amp; लैपटॉप स्टोर</div>
-          <p class="hero-desc">Genuine laptops &amp; desktops, clear pricing, and in-house chip-level hardware repair experts. Kolhapur's trusted tech destination.</p>
-          <div class="hero-cta">
-            <a href="https://wa.me/918600822555?text=Hi%20MB%20Tech,%20I%20have%20a%20laptop%20query" target="_blank" class="btn btn-wa">Chat on WhatsApp</a>
-            <a href="tel:+918600822555" class="btn btn-outline">Call Store Direct</a>
+      <div class="hero-content">
+        <div class="badge"><span class="dot-ping"></span> Shahupuri, Kolhapur • Sales &amp; Service</div>
+        <h1>Your laptop, <span>diagnosed right</span> &amp; fixed properly.</h1>
+        <div class="hero-hindi devanagari">एम बी टेक कंप्यूटर &amp; लैपटॉप स्टोर</div>
+        <p class="hero-desc">Genuine laptops &amp; desktops, transparent repair pricing, and in-house chip-level hardware repair technicians in Kolhapur.</p>
+        
+        <div class="quick-stats">
+          <div class="stat-card">
+            <div class="stat-label">LOCATION</div>
+            <div class="stat-value">Shahupuri, Kolhapur</div>
           </div>
-          <div class="quick-stats">
-            <div>
-              <div class="stat-label">Location</div>
-              <div class="stat-value">Shahupuri, Kolhapur</div>
-            </div>
-            <div>
-              <div class="stat-label">Turnaround</div>
-              <div class="stat-value">Same-day Repairs</div>
-            </div>
-            <div>
-              <div class="stat-label">Service Level</div>
-              <div class="stat-value">Chip Level Repair</div>
-            </div>
+          <div class="stat-card">
+            <div class="stat-label">TURNAROUND</div>
+            <div class="stat-value">Same-day Repairs</div>
           </div>
-        </div>
-
-        <div class="console-panel">
-          <div class="console-header">
-            <div class="console-dots">
-              <div class="console-dot"></div>
-              <div class="console-dot"></div>
-              <div class="console-dot"></div>
-            </div>
-            <div class="console-title mono">DIAGNOSTIC_LOG // MB-416001</div>
-          </div>
-          <div class="console-body mono">
-            <div class="log-row"><span>DISPLAY_TEST</span><span class="log-ok">PASSED [120Hz]</span></div>
-            <div class="log-row"><span>MOTHERBOARD_RAILS</span><span class="log-ok">CHECKED [3.3V / 5V]</span></div>
-            <div class="log-row"><span>RAM_INTEGRITY</span><span class="log-ok">PASSED [16GB DDR4]</span></div>
-            <div class="log-row"><span>SSD_HEALTH</span><span class="log-ok">HEALTHY [NVMe 98%]</span></div>
-            <div class="log-row"><span>THERMAL_PASTE</span><span class="log-active">RE-APPLIED</span></div>
-            <br>
-            <div style="color: var(--brand-orange); font-weight: 700;">
-              STATUS: READY FOR PICKUP
-            </div>
+          <div class="stat-card">
+            <div class="stat-label">SERVICE LEVEL</div>
+            <div class="stat-value">Chip Level Repair</div>
           </div>
         </div>
       </div>
@@ -297,38 +256,38 @@
   <section id="services" style="background: #F1F5F9;">
     <div class="wrap">
       <div class="sec-header">
-        <div class="sec-tag mono">01 // Services</div>
+        <div class="sec-tag">01 // Services</div>
         <h2 class="sec-title">Expert Computer Solutions</h2>
       </div>
 
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-num mono">SYS_01</div>
+          <div class="service-num">01</div>
           <h3>Laptop &amp; Desktop Sales</h3>
           <p>Brand new and verified pre-owned laptops &amp; custom desktop builds backed by warranty and official bill support.</p>
         </div>
         <div class="service-card">
-          <div class="service-num mono">SYS_02</div>
+          <div class="service-num">02</div>
           <h3>Chip-Level Hardware Repair</h3>
           <p>Complex motherboard repairs, short-circuit troubleshooting, display panel replacement, and keyboard fixes performed on-site.</p>
         </div>
         <div class="service-card">
-          <div class="service-num mono">SYS_03</div>
+          <div class="service-num">03</div>
           <h3>SSD &amp; RAM Upgrades</h3>
           <p>Upgrade old HDD to ultra-fast NVMe SSDs and increase RAM capacity for instant boot speed and performance boost.</p>
         </div>
         <div class="service-card">
-          <div class="service-num mono">SYS_04</div>
+          <div class="service-num">04</div>
           <h3>OS &amp; Software Maintenance</h3>
           <p>Clean OS installation (Windows/Linux), driver configuration, virus &amp; malware removal, and speed tuning.</p>
         </div>
         <div class="service-card">
-          <div class="service-num mono">SYS_05</div>
+          <div class="service-num">05</div>
           <h3>Data Recovery Solutions</h3>
           <p>Advanced recovery of lost files, formatted partitions, corrupted drives, and dead storage devices.</p>
         </div>
         <div class="service-card">
-          <div class="service-num mono">SYS_06</div>
+          <div class="service-num">06</div>
           <h3>Networking &amp; Printer Support</h3>
           <p>Printer maintenance, ink refill setups, office Wi-Fi networking, and complete tech support for small offices.</p>
         </div>
@@ -339,7 +298,7 @@
   <section id="location">
     <div class="wrap">
       <div class="sec-header">
-        <div class="sec-tag mono">02 // Store Information</div>
+        <div class="sec-tag">02 // Store Information</div>
         <h2 class="sec-title">Visit Our Store in Shahupuri</h2>
       </div>
 
@@ -369,9 +328,18 @@
   </section>
 </main>
 
-<a href="https://wa.me/918600822555" class="float-wa" target="_blank" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-</a>
+<!-- Right Bottom Floating Action Buttons -->
+<div class="floating-actions">
+  <!-- Phone Call Button (Positioned above WhatsApp) -->
+  <a href="tel:+918600822555" class="float-btn float-call" aria-label="Call Store Direct">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  </a>
+  
+  <!-- WhatsApp Button (Positioned at bottom right) -->
+  <a href="https://wa.me/918600822555" class="float-btn float-wa" target="_blank" aria-label="WhatsApp Us">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  </a>
+</div>
 
 <script>
   function checkStoreStatus() {
