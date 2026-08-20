@@ -1,371 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M B TECH — Computer & Laptop Store, Shahupuri, Kolhapur</title>
-<meta name="description" content="M B TECH Computer & Laptop Store — Computer sales, laptop repair, chip-level fixes & SSD upgrades in Shahupuri, Kolhapur. Call 086008 22555.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M B TECH Computer &amp; Laptop Store | Shahupuri, Kolhapur</title>
+<meta name="description" content="M B TECH Computer &amp; Laptop Store in Shahupuri, Kolhapur. Laptop and desktop sales, chip-level repairs, custom PC builds. Rated 4.8 from 64 reviews. Call 086008 22555." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { 
+        'brand-blue': '#1e5cff', 
+        'brand-cyan': '#00b8d4', 
+        'bg-deep': '#ffffff', 
+        surface: '#f4f6fb' 
+      },
+      fontFamily: { 
+        sora: ['Sora', 'system-ui', 'sans-serif'], 
+        hindi: ['"Noto Sans Devanagari"', 'sans-serif'] 
+      },
+    },
+  },
+};
+</script>
+
 <style>
-  :root {
-    --bg-main: #FAFAFC;
-    --bg-card: #FFFFFF;
-    --bg-subtle: #F1F5F9;
-    
-    --border: #E2E8F0;
-    --border-strong: #CBD5E1;
-    
-    --text-primary: #0F172A;
-    --text-secondary: #475569;
-    --text-muted: #64748B;
-    
-    --brand-red: #D92D20;
-    --brand-orange: #E65100;
-    --brand-blue: #0284C7;
-    --green: #16A34A;
-    --green-bg: #DCFCE7;
-    --red-bg: #FEE2E2;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg-main);
-    color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+  @keyframes revealUp { 
+    from { opacity: 0; transform: translateY(28px); } 
+    to { opacity: 1; transform: none; } 
   }
-
-  .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
-  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-
-  /* Navbar */
-  header {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  @keyframes glowPulse { 
+    0%, 100% { box-shadow: 0 25px 60px -20px rgba(30,92,255,.35); } 
+    50% { box-shadow: 0 25px 80px -10px rgba(0,184,212,.45); } 
   }
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 0;
+  @keyframes marqueeX { 
+    from { transform: translateX(0); } 
+    to { transform: translateX(-50%); } 
   }
-  .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-  
-  /* Logo Styling */
-  .brand-logo-img {
-    height: 48px;
-    width: auto;
-    object-fit: contain;
+  .animate-reveal { animation: revealUp .8s cubic-bezier(.16,1,.3,1) both; }
+  .animate-reveal-delayed { animation: revealUp .9s cubic-bezier(.16,1,.3,1) .15s both; }
+  .animate-glow { animation: glowPulse 5s ease-in-out infinite; }
+  .animate-marquee { animation: marqueeX 26s linear infinite; }
+  .reveal { 
+    opacity: 0; 
+    transform: translateY(28px); 
+    transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); 
   }
-  
-  .brand-info { display: flex; flex-direction: column; }
-  .brand-name { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--text-primary); line-height: 1.1; }
-  .brand-sub { font-size: 0.75rem; color: var(--text-secondary); font-weight: 500; }
-
-  nav ul { display: flex; gap: 32px; list-style: none; }
-  nav ul a {
-    color: var(--text-secondary); font-size: 0.95rem; font-weight: 600;
-    transition: color 0.2s ease;
-    text-decoration: none;
-  }
-  nav ul a:hover { color: var(--brand-blue); }
-
-  /* Hero Section */
-  .hero { position: relative; padding: 60px 0 80px; background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-main) 100%); }
-  .hero-content { max-width: 800px; margin: 0 auto; text-align: center; }
-
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 16px; border-radius: 20px;
-    background: #EFF6FF; border: 1px solid #BFDBFE;
-    color: var(--brand-blue); font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
-  }
-  .dot-ping { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
-
-  .hero h1 {
-    font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 800; line-height: 1.15;
-    letter-spacing: -0.03em; margin-bottom: 16px; color: var(--text-primary);
-  }
-  .hero h1 span { color: var(--brand-blue); }
-  .hero-hindi { font-size: 1.25rem; color: var(--brand-orange); margin-bottom: 20px; font-weight: 600; }
-  .hero-desc { font-size: 1.1rem; color: var(--text-secondary); margin: 0 auto 40px; max-width: 620px; }
-
-  .quick-stats { 
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
-    border-top: 1px solid var(--border); padding-top: 32px; margin-top: 20px;
-  }
-  .stat-card {
-    background: var(--bg-card); padding: 20px; border-radius: 12px;
-    border: 1px solid var(--border); text-align: center;
-  }
-  .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
-  .stat-value { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-top: 6px; }
-
-  /* Services Section */
-  section { padding: 80px 0; }
-  .sec-header { margin-bottom: 48px; text-align: center; }
-  .sec-tag { color: var(--brand-blue); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
-  .sec-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; color: var(--text-primary); }
-
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-  .service-card {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 32px; transition: all 0.25s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-  }
-  .service-card:hover {
-    border-color: var(--brand-blue);
-    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.08);
-    transform: translateY(-3px);
-  }
-  .service-num { font-size: 0.85rem; color: var(--brand-orange); font-weight: 700; margin-bottom: 14px; }
-  .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
-  .service-card p { font-size: 0.95rem; color: var(--text-secondary); }
-
-  /* Info & Location */
-  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
-  .info-box {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 36px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-  }
-  .info-item { margin-bottom: 24px; }
-  .info-item:last-child { margin-bottom: 0; }
-  .info-item label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 6px; font-weight: 700; }
-  .info-item p { font-size: 1rem; color: var(--text-primary); font-weight: 600; }
-
-  .status-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; margin-top: 12px;
-  }
-  .status-tag.open { background: var(--green-bg); color: var(--green); }
-  .status-tag.closed { background: var(--red-bg); color: var(--brand-red); }
-
-  .map-container { height: 100%; min-height: 350px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-  .map-container iframe { width: 100%; height: 100%; border: 0; }
-
-  /* Floating Action Buttons Container (Bottom Right) */
-  .floating-actions {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    align-items: center;
-  }
-
-  .float-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .float-btn:hover {
-    transform: scale(1.1);
-  }
-
-  /* Call Button (Above WhatsApp) */
-  .float-call {
-    background: var(--brand-blue);
-    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
-  }
-
-  /* WhatsApp Button (Bottom) */
-  .float-wa {
-    background: var(--green);
-    box-shadow: 0 6px 18px rgba(22, 163, 74, 0.4);
-  }
-
-  .float-btn svg {
-    width: 26px;
-    height: 26px;
-    fill: currentColor;
-  }
-
-  @media (max-width: 860px) {
-    nav ul { display: none; }
-    .info-grid { grid-template-columns: 1fr; }
-    .floating-actions { bottom: 20px; right: 20px; gap: 12px; }
-    .float-btn { width: 50px; height: 50px; }
-    .float-btn svg { width: 22px; height: 22px; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { 
+    *, *::before, *::after { animation: none !important; transition: none !important; } 
+    .reveal { opacity: 1; transform: none; } 
   }
 </style>
 </head>
-<body>
+<body class="min-h-screen bg-bg-deep text-slate-900 font-sora selection:bg-brand-blue/30">
 
-<header>
-  <div class="wrap">
-    <nav>
-      <a href="#" class="brand">
-        <!-- Integrated Logo Image -->
-        <img src="https://lh3.googleusercontent.com/p/AF1QipN3d7sCg38U82U0d14b436m05255" alt="M B TECH Logo" class="brand-logo-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' width=\'48\' height=\'48\'><path d=\'M50 15 C35 32, 35 52, 50 68 C65 52, 65 32, 50 15 Z\' fill=\'%23D92D20\'/><path d=\'M50 20 C28 32, 22 55, 38 72 C50 58, 48 38, 50 20 Z\' fill=\'%23E65100\'/><path d=\'M50 20 C72 32, 78 55, 62 72 C50 58, 52 38, 50 20 Z\' fill=\'%23E65100\'/></svg>';">
-        <div class="brand-info">
-          <span class="brand-name">M B TECH</span>
-          <span class="brand-sub devanagari">एम बी टेक कंप्यूटर &amp; लैपटॉप स्टोर</span>
+  <!-- Header / Navigation -->
+  <nav id="nav" class="fixed top-0 w-full z-50 border-b border-transparent bg-transparent transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="size-10 bg-gradient-to-br from-brand-blue to-brand-cyan rounded-lg flex items-center justify-center font-extrabold text-white italic tracking-tighter shadow-lg shadow-brand-blue/20">
+          MB
         </div>
-      </a>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#location">Store Location</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+        <div class="flex flex-col leading-none">
+          <span class="text-lg font-bold tracking-tight uppercase">M B TECH</span>
+          <span class="font-hindi text-[10px] text-slate-600">एम ब टेक कंप्यूटर</span>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#inventory" class="hover:text-brand-cyan transition-colors">Inventory</a>
+        <a href="#services" class="hover:text-brand-cyan transition-colors">Services</a>
+        <a href="#location" class="hover:text-brand-cyan transition-colors">Location</a>
+        <a href="tel:08600822555" class="px-5 py-2.5 bg-slate-900/[0.04] hover:bg-slate-900/[0.07] border border-slate-900/10 rounded-full text-slate-900 transition-all">Contact Expert</a>
+      </div>
+    </div>
+  </nav>
 
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-content">
-        <div class="badge"><span class="dot-ping"></span> Shahupuri, Kolhapur • Sales &amp; Service</div>
-        <h1>Your laptop, <span>diagnosed right</span> &amp; fixed properly.</h1>
-        <div class="hero-hindi devanagari">एम बी टेक कंप्यूटर &amp; लैपटॉप स्टोर</div>
-        <p class="hero-desc">Genuine laptops &amp; desktops, transparent repair pricing, and in-house chip-level hardware repair technicians in Kolhapur.</p>
-        
-        <div class="quick-stats">
-          <div class="stat-card">
-            <div class="stat-label">LOCATION</div>
-            <div class="stat-value">Shahupuri, Kolhapur</div>
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section id="inventory" class="relative px-6 py-24 overflow-hidden">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-cyan text-xs font-semibold mb-6 animate-reveal">
+            <span class="flex h-2 w-2 rounded-full bg-brand-cyan animate-pulse"></span>
+            CERTIFIED TECH SPECIALISTS
           </div>
-          <div class="stat-card">
-            <div class="stat-label">TURNAROUND</div>
-            <div class="stat-value">Same-day Repairs</div>
+          <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6 leading-[1.1] animate-reveal-delayed">
+            Elevate Your <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan">Digital Performance.</span>
+          </h1>
+          <p class="text-lg text-slate-600 max-w-lg mb-10 leading-relaxed animate-reveal-delayed">
+            Premium computer store in Shahupuri, Kolhapur. Expert sales, custom builds, and rapid technical repairs.
+          </p>
+          <div class="flex flex-wrap items-center gap-6 animate-reveal-delayed">
+            <a href="https://wa.link" class="px-8 py-4 bg-brand-blue text-white rounded-xl font-bold hover:bg-brand-blue/85 hover:-translate-y-0.5 transition-all shadow-xl shadow-brand-blue/20 flex items-center gap-3">
+              Browse Laptops
+            </a>
+            <div class="flex flex-col">
+              <div class="flex items-center gap-1.5">
+                <span class="text-amber-500 font-bold text-sm" data-countup="4.8" data-decimals="1">0.0</span>
+                <div class="flex text-amber-500 text-xs">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+              <span class="text-[10px] text-slate-500 font-medium tracking-wide uppercase">64 REVIEWS ON GOOGLE</span>
+            </div>
           </div>
-          <div class="stat-card">
-            <div class="stat-label">SERVICE LEVEL</div>
-            <div class="stat-value">Chip Level Repair</div>
+        </div>
+
+        <div class="relative animate-reveal-delayed" id="heroArt">
+          <div class="absolute inset-0 bg-brand-cyan/25 blur-[120px] rounded-full"></div>
+          <div class="relative w-full aspect-[6/5] bg-slate-900 rounded-2xl border border-slate-900/10 shadow-2xl overflow-hidden animate-glow">
+            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1200&q=80" alt="Gaming Laptop" class="w-full h-full object-cover" />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticker / Marquee Banner -->
+    <div class="border-y border-slate-900/10 py-4 overflow-hidden bg-surface">
+      <div class="flex w-max animate-marquee gap-12 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
+        <div class="flex gap-12 pr-12">
+          <span>In-store shopping</span><span class="text-brand-cyan">◆</span>
+          <span>In-store pick-up</span><span class="text-brand-cyan">◆</span>
+          <span>Delivery</span><span class="text-brand-cyan">◆</span>
+          <span>Open · Closes 8 PM</span><span class="text-brand-cyan">◆</span>
+          <span>086008 22555</span><span class="text-brand-cyan">◆</span>
+        </div>
+        <div class="flex gap-12 pr-12">
+          <span>In-store shopping</span><span class="text-brand-cyan">◆</span>
+          <span>In-store pick-up</span><span class="text-brand-cyan">◆</span>
+          <span>Delivery</span><span class="text-brand-cyan">◆</span>
+          <span>Open · Closes 8 PM</span><span class="text-brand-cyan">◆</span>
+          <span>086008 22555</span><span class="text-brand-cyan">◆</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <section id="services" style="background: #F1F5F9;">
-    <div class="wrap">
-      <div class="sec-header">
-        <div class="sec-tag">01 // Services</div>
-        <h2 class="sec-title">Expert Computer Solutions</h2>
-      </div>
+    <!-- Services Section -->
+    <section id="services" class="px-6 py-24 bg-surface">
+      <div class="max-w-7xl mx-auto">
+        <div class="reveal">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <h2 class="text-3xl font-bold tracking-tight mb-2">Comprehensive Tech Solutions</h2>
+              <p class="text-slate-600">Professional support for home and business infrastructure.</p>
+            </div>
+            <div class="flex gap-4">
+              <div class="px-4 py-2 border border-slate-900/10 bg-slate-900/[0.04] rounded-lg text-sm text-slate-500">In-store Shopping</div>
+              <div class="px-4 py-2 border border-slate-900/10 bg-slate-900/[0.04] rounded-lg text-sm text-slate-500">Delivery</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-num">01</div>
-          <h3>Laptop &amp; Desktop Sales</h3>
-          <p>Brand new and verified pre-owned laptops &amp; custom desktop builds backed by warranty and official bill support.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-num">02</div>
-          <h3>Chip-Level Hardware Repair</h3>
-          <p>Complex motherboard repairs, short-circuit troubleshooting, display panel replacement, and keyboard fixes performed on-site.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-num">03</div>
-          <h3>SSD &amp; RAM Upgrades</h3>
-          <p>Upgrade old HDD to ultra-fast NVMe SSDs and increase RAM capacity for instant boot speed and performance boost.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-num">04</div>
-          <h3>OS &amp; Software Maintenance</h3>
-          <p>Clean OS installation (Windows/Linux), driver configuration, virus &amp; malware removal, and speed tuning.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-num">05</div>
-          <h3>Data Recovery Solutions</h3>
-          <p>Advanced recovery of lost files, formatted partitions, corrupted drives, and dead storage devices.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-num">06</div>
-          <h3>Networking &amp; Printer Support</h3>
-          <p>Printer maintenance, ink refill setups, office Wi-Fi networking, and complete tech support for small offices.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="reveal">
+            <div class="group h-full p-8 bg-white border border-slate-900/10 rounded-2xl shadow-sm hover:border-brand-blue/50 hover:-translate-y-1 transition-all duration-500">
+              <div class="size-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-cyan mb-6 group-hover:scale-110 group-hover:bg-brand-blue/20 transition-transform duration-500">
+                <div class="size-6 border-2 border-current rounded-sm"></div>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Latest Hardware</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">Authorised sales of high-performance laptops, desktops, and essential computer peripherals from global brands.</p>
+              <a href="https://wa.link" class="text-brand-cyan text-sm font-bold tracking-wider uppercase flex items-center gap-2 group-hover:gap-4 transition-all">Explore Collection &rarr;</a>
+            </div>
+          </div>
+          <div class="reveal" style="transition-delay:120ms">
+            <div class="group h-full p-8 bg-white border border-slate-900/10 rounded-2xl shadow-sm hover:border-brand-blue/50 hover:-translate-y-1 transition-all duration-500">
+              <div class="size-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-cyan mb-6 group-hover:scale-110 group-hover:bg-brand-blue/20 transition-transform duration-500">
+                <div class="size-6 border-2 border-current rounded-full"></div>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Expert Repair</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">Professional diagnostic services, chip-level repairs, and software optimization for all major laptop brands.</p>
+              <a href="https://wa.link" class="text-brand-cyan text-sm font-bold tracking-wider uppercase flex items-center gap-2 group-hover:gap-4 transition-all">Book Service &rarr;</a>
+            </div>
+          </div>
+          <div class="reveal" style="transition-delay:240ms">
+            <div class="group h-full p-8 bg-white border border-slate-900/10 rounded-2xl shadow-sm hover:border-brand-blue/50 hover:-translate-y-1 transition-all duration-500">
+              <div class="size-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-cyan mb-6 group-hover:scale-110 group-hover:bg-brand-blue/20 transition-transform duration-500">
+                <div class="size-6 border-b-2 border-current"></div>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Custom Builds</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">Bespoke PC configurations for gaming, video editing, and architecture software. Built for stability and speed.</p>
+              <a href="https://wa.link" class="text-brand-cyan text-sm font-bold tracking-wider uppercase flex items-center gap-2 group-hover:gap-4 transition-all">Build Your PC &rarr;</a>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="px-6 py-24">
+      <div class="reveal max-w-7xl mx-auto">
+        <div class="rounded-3xl overflow-hidden border border-slate-900/10 bg-white shadow-sm relative">
+          <div class="grid lg:grid-cols-2">
+            <div class="p-12 lg:p-20">
+              <h2 class="text-4xl font-bold mb-8">Visit the Store</h2>
+              <div class="space-y-8">
+                <div class="flex gap-6">
+                  <div class="text-brand-blue text-xl mt-1">📍</div>
+                  <div>
+                    <p class="font-bold text-slate-900 mb-1">Shahupuri, Kolhapur</p>
+                    <p class="text-slate-600 leading-relaxed">Shop No 6, Ganga Niwas, 4th Ln, E Ward,<br />Maharashtra 416001</p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div class="text-brand-blue text-xl mt-1">🕙</div>
+                  <div>
+                    <p class="font-bold text-slate-900 mb-1">Store Hours</p>
+                    <p class="text-slate-600">Open daily until 8:00 PM</p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div class="text-brand-blue text-xl mt-1">📞</div>
+                  <div>
+                    <p class="font-bold text-slate-900 mb-1">Quick Contact</p>
+                    <a href="tel:08600822555" class="text-slate-600 hover:text-brand-cyan transition-colors">086008 22555</a>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-12 flex gap-4">
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=M+B+TECH+Computer+%26+Laptop+Store+Shahupuri+Kolhapur" target="_blank" rel="noreferrer" class="px-6 py-3 bg-brand-blue text-white rounded-lg font-bold hover:bg-brand-blue/85 hover:-translate-y-0.5 transition-all">Get Directions</a>
+                <a href="https://wa.link" target="_blank" rel="noreferrer" class="px-6 py-3 border border-slate-900/10 rounded-lg font-bold hover:bg-slate-900/[0.04] hover:-translate-y-0.5 transition-all">WhatsApp Us</a>
+              </div>
+            </div>
+            <div class="bg-surface relative min-h-[420px]">
+              <iframe title="M B TECH Store Location"
+                src="https://www.google.com/maps?q=M%20B%20TECH%20Computer%20%26%20Laptop%20Store%2C%20Shop%20No%206%2C%20Ganga%20Niwas%2C%204th%20Ln%2C%20E%20Ward%2C%20Shahupuri%2C%20Kolhapur%2C%20Maharashtra%20416001&amp;z=17&amp;output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                class="absolute inset-0 w-full h-full border-0"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="px-6 py-12 border-t border-slate-900/10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex items-center gap-3">
+        <div class="size-8 bg-brand-blue rounded-md flex items-center justify-center font-extrabold text-white text-xs">MB</div>
+        <span class="text-sm font-bold uppercase tracking-widest text-slate-500">M B Tech Kolhapur</span>
+      </div>
+      <p class="text-slate-500 text-xs">© M B TECH. ALL RIGHTS RESERVED.</p>
     </div>
-  </section>
+  </footer>
 
-  <section id="location">
-    <div class="wrap">
-      <div class="sec-header">
-        <div class="sec-tag">02 // Store Information</div>
-        <h2 class="sec-title">Visit Our Store in Shahupuri</h2>
-      </div>
+  <script>
+    // Navigation Blur Effect on Scroll
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 12) {
+        nav.classList.add('bg-white/90', 'backdrop-blur-md', 'border-slate-900/10');
+        nav.classList.remove('bg-transparent', 'border-transparent');
+      } else {
+        nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-slate-900/10');
+        nav.classList.add('bg-transparent', 'border-transparent');
+      }
+    }, { passive: true });
 
-      <div class="info-grid">
-        <div class="info-box">
-          <div class="info-item">
-            <label>Store Address</label>
-            <p>Shop No 6, Ganga Niwas, 4th Line, E Ward, Shahupuri, Kolhapur, Maharashtra 416001</p>
-          </div>
-          <div class="info-item">
-            <label>Working Hours</label>
-            <p>Monday – Saturday: 10:00 AM – 8:00 PM</p>
-            <p style="color: var(--brand-red); font-size: 0.9rem;">Sunday: Closed</p>
-            <div id="status-tag" class="status-tag">Checking store status...</div>
-          </div>
-          <div class="info-item">
-            <label>Direct Contact</label>
-            <p>Phone / WhatsApp: <a href="tel:+918600822555" style="color: var(--brand-blue);">086008 22555</a></p>
-          </div>
-        </div>
+    // Intersection Observer for Scroll Animations
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
 
-        <div class="map-container">
-          <!-- Direct Business Marker for MB TECH Computer & Laptop Store -->
-          <iframe 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade" 
-            src="https://maps.google.com/maps?q=MB+TECH+Computer+%26+Laptop+Store,+4th+Ln,+E+Ward,+Shahupuri,+Kolhapur,+Maharashtra+416001&t=&z=17&ie=UTF8&iwloc=&output=embed">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- Right Bottom Floating Action Buttons -->
-<div class="floating-actions">
-  <!-- Phone Call Button (Positioned above WhatsApp) -->
-  <a href="tel:+918600822555" class="float-btn float-call" aria-label="Call Store Direct">
-    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-  </a>
-  
-  <!-- WhatsApp Button (Positioned at bottom right) -->
-  <a href="https://wa.me/918600822555" class="float-btn float-wa" target="_blank" aria-label="WhatsApp Us">
-    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-  </a>
-</div>
-
-<script>
-  function checkStoreStatus() {
-    const now = new Date();
-    const day = now.getDay();
-    const hour = now.getHours();
-    const tag = document.getElementById('status-tag');
-
-    if (day === 0) {
-      tag.className = 'status-tag closed';
-      tag.innerText = '🔴 Closed Today (Sunday)';
-    } else if (hour >= 10 && hour < 20) {
-      tag.className = 'status-tag open';
-      tag.innerText = '🟢 Store Open Now (Closes at 8:00 PM)';
-    } else {
-      tag.className = 'status-tag closed';
-      tag.innerText = '🔴 Store Currently Closed (Opens at 10:00 AM)';
-    }
-  }
-  checkStoreStatus();
-</script>
-
+    // Counter Animation for Review Rating
+    document.querySelectorAll('[data-countup]').forEach(function (el) {
+      var target = parseFloat(el.dataset.countup), dec = parseInt(el.dataset.decimals || '0', 10);
+      var obs = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        obs.disconnect();
+        var start = performance.now();
+        (function tick(now) {
+          var t = Math.min((now - start) / 1200, 1);
+          el.textContent = (target * (1 - Math.pow(1 - t, 3))).toFixed(dec);
+          if (t < 1) requestAnimationFrame(tick);
+        })(start);
+      }, { threshold: 0.4 });
+      obs.observe(el);
+    });
+  </script>
 </body>
 </html>
